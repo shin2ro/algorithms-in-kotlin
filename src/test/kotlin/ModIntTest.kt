@@ -4,24 +4,28 @@ import kotlin.test.asserter
 
 internal class ModIntTest {
 
-    @Test fun testInit() {
+    @Test
+    fun testInit() {
         val m = ModInt(ModInt.MOD + 1)
         asserter.assertEquals("test init", 1L, m.x)
     }
 
-    @Test fun testPlus() {
+    @Test
+    fun testPlus() {
         val m1 = ModInt(ModInt.MOD - 10)
         val m2 = ModInt(100)
         asserter.assertEquals("test +", 90L, (m1 + m2).x)
     }
 
-    @Test fun testMinus() {
+    @Test
+    fun testMinus() {
         val m1 = ModInt(ModInt.MOD + 100)
         val m2 = ModInt(200)
         asserter.assertEquals("test -", ModInt.MOD - 100, (m1 - m2).x)
     }
 
-    @Test fun testTimes() {
+    @Test
+    fun testTimes() {
         val l1 = ModInt.MOD + 1
         val l2 = 1e18.toLong()
 
@@ -30,7 +34,8 @@ internal class ModIntTest {
         asserter.assertEquals("test *", l2 % ModInt.MOD, (m1 * m2).x)
     }
 
-    @Test fun testDiv() {
+    @Test
+    fun testDiv() {
         val l1 = (ModInt.MOD + 1) * 10e5.toLong()
         @Suppress("INTEGER_OVERFLOW")
         asserter.assertNotEquals("test overflow", l1, l1 * l1 / l1)
@@ -38,12 +43,14 @@ internal class ModIntTest {
         asserter.assertEquals("test /", m1, m1 * m1 / m1)
     }
 
-    @Test fun testPow() {
+    @Test
+    fun testPow() {
         val m1 = ModInt(2)
         asserter.assertEquals("test pow", 2.0.pow(10.0).toLong(), m1.pow(10).x)
     }
 
-    @Test fun testInv() {
+    @Test
+    fun testInv() {
         val m1 = ModInt(2)
 
         // x ^ (10^9 + 7 - 2) % 10^9 + 7
